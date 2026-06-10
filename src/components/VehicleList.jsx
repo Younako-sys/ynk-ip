@@ -179,7 +179,7 @@ const styles = {
   cardCurrent: { background: '#eff6ff', border: '2px solid #2563eb' },
   cardFlash: { background: '#eff6ff', border: '2px solid #2563eb', boxShadow: '0 0 12px rgba(37,99,235,0.2)' },
   cardRow: { display: 'flex', alignItems: 'center', gap: 0, minWidth: 0 },
-  sep: { width: 1, alignSelf: 'stretch', margin: '0 8px', flexShrink: 0 },
+  sep: { width: 1, alignSelf: 'stretch', margin: '0 4px', flexShrink: 0 },
   marque: { flexShrink: 0, background: '#dbeafe', color: '#1d4ed8', fontSize: 13, fontWeight: 700, padding: "4px 9px", borderRadius: 6, fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif" },
   marqueFound: { background: '#dcfce7', color: '#16a34a' },
   marqueCurrent: { background: '#2563eb', color: '#fff' },
