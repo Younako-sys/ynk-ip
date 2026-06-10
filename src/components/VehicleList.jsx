@@ -91,16 +91,13 @@ const VehicleCard = React.forwardRef(({ v, isMatch, isCurrent, query, marque, mo
         </span>
         <div style={{ ...styles.sep, background: v.found ? '#bbf7d0' : isCurrent ? '#bfdbfe' : '#e2e8f0' }} />
 
-        {/* VIN */}
-        <VinDisplay vin={v.vin} query={query} isMatch={isMatch && !v.found} isCurrent={isCurrent} found={v.found} />
-
-        {/* Lieu (si trouvé) */}
-        {v.found && lieuShort && (
-          <>
-            <div style={{ ...styles.sep, background: '#bbf7d0' }} />
-            <span style={styles.lieuBadge}>📍 {lieuShort}</span>
-          </>
-        )}
+        {/* VIN + lieu en dessous */}
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <VinDisplay vin={v.vin} query={query} isMatch={isMatch && !v.found} isCurrent={isCurrent} found={v.found} />
+          {v.found && lieuShort && (
+            <div style={styles.lieuBelow}>📍 {v.lieu}</div>
+          )}
+        </div>
 
         {/* Boutons */}
         <div style={styles.actions}>
@@ -185,6 +182,7 @@ const styles = {
   marqueCurrent: { background: '#2563eb', color: '#fff' },
   modele: { flexShrink: 0, fontSize: 14, fontWeight: 600, fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif' },
   lieuBadge: { flexShrink: 0, background: '#dcfce7', color: '#16a34a', fontSize: 12, fontWeight: 700, padding: '3px 8px', borderRadius: 5, whiteSpace: 'nowrap', fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif' },
+  lieuBelow: { fontSize: 11, color: '#16a34a', fontWeight: 600, marginTop: 3, fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif' },
   actions: { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, marginLeft: 8, flexShrink: 0 },
   badge: { width: 40, height: 40, borderRadius: '50%', background: '#dcfce7', border: '2px solid #16a34a', color: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 800 },
   unmarkBtn: { width: 40, height: 24, borderRadius: 6, border: '0.5px solid #bbf7d0', fontSize: 14, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0, WebkitAppearance: 'none' },
